@@ -9,14 +9,6 @@ const ShoppingCart = () => {
     const { products, cart } = state;
     const dispatch = useDispatch();
 
-    const delFromCart = (id, all = false) => {
-        if (all) {
-            dispatch(deleteAllFormCart(id));
-        } else {
-            dispatch(deleteOneFormCart(id));
-        }
-    };
-
     return (
         <div>
             <h2>Carrito de Compras</h2>
@@ -30,7 +22,7 @@ const ShoppingCart = () => {
             <article className="box">
                 <button onClick={() => dispatch(clearCart())}>Limpiar Carrito</button>
                 {cart.map((item, index) => (
-                    <CartItem key={index} data={item} delFromCart={delFromCart} />
+                    <CartItem key={index} data={item} />
                 ))}
             </article>
         </div>

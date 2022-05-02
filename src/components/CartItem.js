@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteFromCart } from '../actions/shoppingActions';
 
-const CartItem = ({ data, delFromCart }) => {
+const CartItem = ({ data }) => {
+    const dispatch = useDispatch()
     let { id, name, price, quantity } = data;
 
     return (
@@ -9,9 +12,9 @@ const CartItem = ({ data, delFromCart }) => {
             <h5>
                 ${price}.00 x {quantity} = ${price * quantity}.00
             </h5>
-            <button onClick={() => delFromCart(id)}>Eliminar Uno</button>
+            <button onClick={() => dispatch(deleteFromCart(id))}>Eliminar Uno</button>
             <br />
-            <button onClick={() => delFromCart(id, true)}>Eliminar Todos</button>
+            <button onClick={() => dispatch(deleteFromCart(id, true))}>Eliminar Todos</button>
             <br />
             <br />
         </div>

@@ -1,6 +1,6 @@
 import { ADD_TO_CART, CLEAR_CART, REMOVE_ALL_FROM_CART, REMOVE_ONE_FROM_CART } from "../types";
 
-const shoppingInitialState = {
+const initialState = {
     products: [
         { id: 1, name: "Producto 1", price: 100 },
         { id: 2, name: "Producto 2", price: 200 },
@@ -12,7 +12,7 @@ const shoppingInitialState = {
     cart: [],
 };
 
-export default function shoppingReducer(state = shoppingInitialState, action) {
+export default function shoppingReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TO_CART: {
             let newItem = state.products.find(
@@ -62,7 +62,7 @@ export default function shoppingReducer(state = shoppingInitialState, action) {
         }
 
         case CLEAR_CART:
-            return shoppingInitialState;
+            return initialState;
 
         default:
             return state;
