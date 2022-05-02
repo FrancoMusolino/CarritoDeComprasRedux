@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
-import { clearCart, deleteAllFormCart, deleteOneFormCart } from '../actions/shoppingActions';
+import { clearCart } from '../actions/shoppingActions';
 
 const ShoppingCart = () => {
     const state = useSelector(state => state.shopping);
